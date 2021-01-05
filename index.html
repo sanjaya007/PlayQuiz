@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Quiz</title>
+    <link rel="icon" type="image/png" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="getLoad()">
+    <div id="loading"></div>
+
+    <div class="agreement">
+
+        <header>
+            <h1> Quiz </h1>
+        </header>
+
+        <div class="ready">
+            <div class="heading">
+                <h2> Confirm Agreement </h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="rules">
+                <ul>
+                    <li>You can't leave the game without completing when it starts !</li>
+                    <li>This quiz contains 10 questions with 4 options !</li>
+                    <li>All answers of the questions are google authorized !</li>
+                    <li>You have 20 seconds to answer each question !</li>
+                    <li>One mistake is game finished !</li>
+                    <li>You have two lifelines, one is 50/50 and another is google surfing!</li>
+                    <li>In 50/50 lifeline, 2 wrong answers will be removed !</li>
+                    <li>And in google surfing lifeline, you will have 15 seconds to search answers in google !</li>
+                    <li>The award starts from Rs 25 !</li>
+                    <li>1k is th final award for 10 correct answers !</li>
+                </ul>
+            </div>
+
+            <form onsubmit="return validation()" id="agreementForm">
+            <div class="form">
+
+                    <input type="checkbox" id="ready">
+                    <label for="ready"> I agree the<a href=""> terms, rules and conditions . </a> </label> <br>
+                    <span id="notReady"> </span>
+
+            </div>
+
+            <div class="button-container">
+                <input type="submit" class="start" id="start" value="Start"> </input>
+            </div>
+
+            </form>
+
+
+    
+        </div>
+
+        <div class="developer">
+
+            <div class="image-container">
+                <img src="images/developer.jpeg" alt="Sanjaya Paudel">
+            </div>
+
+            <div class="name">
+                <h1> Developed By <br> <span> Sanjaya Paudel</span> </h1>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <audio class="introAudio">
+            <source src="sound/intro.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="layout1">
+            <div class="heading-layout">
+                <header>
+                    <h1> Quiz </h1>
+                </header>
+            </div>
+            <div class="quiz-layout">
+                <div class="question-num">
+                    <div class="q-num">
+                        <h4> Question <span id="q-num">  </span> </h4>
+
+                        <audio class="heartbeat">
+                            <source src="sound/heartbeat.mp3" type="audio/mpeg">
+                        </audio>
+
+                    </div>
+                </div>
+                <div class="quiz-box">
+                    <div class="quiz-time">
+                        <div class="remaining-time">  </div>
+                    </div>
+            
+                    <div class="question-box">
+                        <div class="question-text">
+                        </div>
+                    </div>
+            
+                    <div class="option-box">
+                        <audio class="correctAudio">
+                            <source src="sound/correct.mp3" type="audio/mpeg">
+                          </audio>
+
+                          <audio class="incorrectAudio">
+                            <source src="sound/error.mp3" type="audio/mpeg">
+                          </audio>
+
+                          <audio class="clap">
+                            <source src="sound/clap.mp3" type="audio/mpeg">
+                          </audio>
+                          
+                    </div>
+            
+                    <div class="btn-container">
+                        <button class="next-btn btn"> Next Question </button>
+                        <button class="show-btn btn"> Show Result </button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="layout2">
+            <div class="stats-layout">
+                <div class="stats-result">
+                    <h2> Score </h2>
+                    <span> Question 10 : Rs 1000 </span>
+                    <span> Question 9 : Rs 900 </span>
+                    <span> Question 8 : Rs 800 </span>
+                    <span> Question 7 : Rs 700 </span>
+                    <span> Question 6 : Rs 600 </span>
+                    <span> Question 5 : Rs 500 </span>
+                    <span> Question 4 : Rs 250 </span>
+                    <span> Question 3 : Rs 100 </span>
+                    <span> Question 2 : Rs 50 </span>
+                    <span> Question 1 : Rs 25 </span>
+                </div>
+            </div>
+            <div class="lifelines-layout">
+                <div class="life1"> 
+                    1/2
+
+                    <audio class="hiss">
+                        <source src="sound/hiss.mp3" type="audio/mpeg">
+                    </audio>
+
+                </div>
+                <div class="life2">
+                    <img class="lifeImage" src="images/googleLogo.jpg" alt="logo">
+
+                    <audio class="beepIntro">
+                        <source src="sound/beepIntro.mp3" type="audio/mpeg">
+                    </audio>
+
+                    <audio class="beepEnd">
+                        <source src="sound/beepEnd.mp3" type="audio/mpeg">
+                    </audio>
+
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="final-result">
+
+        <header>
+            <h1> Thank You </h1>
+        </header>
+
+        <div class="result">
+            <h4> Total Questions : <span id="totalQuestions"> </span> </h4>
+            <h4> Able To Answer : <span id="yourScore"> </span> </h4>
+            <h4> You Win Rs : <span id="yourMoney"> </span> </h4>
+
+            <div class="final-btn">
+                <button class="result-btn again-btn"> Play Again</button>
+                <button class="result-btn exit-btn"> Exit </button>
+            </div>
+
+        </div>
+
+        <div class="developer">
+
+            <div class="image-container">
+                <img src="images/developer.jpeg" alt="Sanjaya Paudel">
+            </div>
+
+            <div class="name">
+                <h1> Developed By <br> <span> Sanjaya Paudel</span> </h1>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- <div class="quiz-box">
+        <div class="quiz-time">
+            <div class="remaining-time"> 20 </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">
+                Who is the founder of Javascript ?
+            </div>
+        </div>
+
+        <div class="option-box">
+            <div class="option"> Brendan Eich </div>
+            <div class="option"> Guido van Rossum</div>
+            <div class="option"> Rasmus Lerdorf </div>
+            <div class="option"> James Gosling </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="next-btn btn"> Next Question </button>
+            <button class="show-btn btn"> Show Result </button>
+        </div>
+    </div> -->
+
+<script src="js/script.js"></script>
+</body>
+</html>
