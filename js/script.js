@@ -166,6 +166,7 @@ function check(element) {
   } else {
     element.classList.add("incorrect");
     incorrectAudio.play();
+    disableLife();
 
     for (let i = 0; i < optionBox.children.length; i++) {
       if (optionBox.children[i].id == answerId) {
@@ -185,6 +186,11 @@ function check(element) {
   if (number == myGame.length) {
     gameFinished();
   }
+}
+
+function disableLife() {
+  life1.classList.add("disableLife");
+  life2.classList.add("disableLife");
 }
 
 function disableOptions() {
